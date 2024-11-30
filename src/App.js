@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CharacterSelection from './pages/CharacterSelection';
+import CharacterSheet from './pages/CharacterSheet';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        {/* Ruta principal: Pantalla de selección de personajes */}
+        <Route path="/" element={<CharacterSelection />} />
+
+        {/* Ruta dinámica: Hoja de personaje específica */}
+        <Route path="/character/:id" element={<CharacterSheet />} />
+      </Routes>
+    </Router>
   );
 }
 
