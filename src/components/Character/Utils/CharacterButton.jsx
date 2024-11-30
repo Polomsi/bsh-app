@@ -2,10 +2,20 @@ import React from "react";
 
 export const CharacterButton = ({ icon, onClick, width, height, alt }) => {
   return (
-    <div className={`relative group"`} style={{ width: `${width}px`, height: `${height}px` }}>
+    <div 
+      className="relative group" 
+      style={{ width: `${width}px`, height: `${height}px` }} // Aseguramos tamaño dinámico con estilo inline aquí
+    >
       {/* Botón */}
-      <button onClick={onClick} className={`w-[${width}px] h-[${height}px] flex items-center justify-center`}>
-        <img className={`w-[${width}px] h-[${height}px]`} src={icon} alt={alt} />
+      <button 
+        onClick={onClick} 
+        className="w-full h-full flex items-center justify-center"
+      >
+        <img 
+          className="w-full h-full" 
+          src={icon} 
+          alt={alt} 
+        />
       </button>
 
       {/* Tooltip */}

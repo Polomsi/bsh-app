@@ -21,7 +21,7 @@ export const CharacterContent = ({
   return (
     <main className="grid grid-cols-1 md:grid-cols-7 gap-4 p-4 flex-row">
       {/* Barra lateral izquierda */}
-      <section className="bg-content-bg shadow rounded p-4 flex justify-around align-center md:flex-col md:justify-around text-center md:max-w-[80px]">
+      <section className="bg-content-bg shadow rounded p-4 flex justify-around align-center md:flex-col md:justify-around text-center md:max-w-[80px] md:gap-[50px]">
         {/* Botón Inventario */}
         <CharacterButton
           icon={InventoryIcon}
@@ -48,11 +48,43 @@ export const CharacterContent = ({
           height={heightIcons}
           alt="Dones"
         />
+
+        {/* Botón Inventario */}
+        <div className="hidden md:block">
+          <CharacterButton
+            icon={NotesIcon}
+            onClick={() => handleOpenModal("notes")}
+            width={widthIcons}
+            height={heightIcons}
+            alt="Inventario"
+          />
+        </div>
+
+        {/* Botón Equipamiento */}
+        <div className="hidden md:block">
+          <CharacterButton
+            icon={SpiritsIcon}
+            onClick={() => handleOpenModal("spirits")}
+            width={widthIcons}
+            height={heightIcons}
+            alt="Equipamiento"
+          />
+        </div>
+        {/* Botón Dones */}
+        <div className="hidden md:block">
+          <CharacterButton
+            icon={ArtifactsIcon}
+            onClick={() => handleOpenModal("artifacts")}
+            width={widthIcons}
+            height={heightIcons}
+            alt="Dones"
+          />
+        </div>
       </section>
 
-      
+      <div className="md:col-span-6 md:-ml-[17%]">
         {/* Barra de vida */}
-        <div className="m-auto flex justify-center items-center flex-col px-1 w-full">
+        <div className="m-auto flex justify-center items-center flex-col px-1 w-full mb-3 md:w-6/12 md:mb-10">
           <p className="text-title-color mb-2">Puntos de golpe</p>
           <CharacterLifeBar
             totalLife={character.hit_points}
@@ -60,21 +92,22 @@ export const CharacterContent = ({
           />
         </div>
 
-      {/* Contenido principal derecho */}
-      <section className="md:col-span-6">
-        <CharacterStats
-          onRoll={onRoll}
-          dexterity={character.dexterity}
-          strength={character.strength}
-          constitution={character.constitution}
-          intelligence={character.intelligence}
-          wisdom={character.wisdom}
-          charisma={character.wisdom}
-          characterId={character.id}
-        />
-      </section>
+        {/* Contenido principal derecho */}
+        <section>
+          <CharacterStats
+            onRoll={onRoll}
+            dexterity={character.dexterity}
+            strength={character.strength}
+            constitution={character.constitution}
+            intelligence={character.intelligence}
+            wisdom={character.wisdom}
+            charisma={character.wisdom}
+            characterId={character.id}
+          />
+        </section>
+      </div>
       {/* Barra lateral izquierda */}
-      <section className="bg-content-bg shadow rounded p-4 flex justify-around align-center md:flex-col md:justify-around text-center md:max-w-[80px]">
+      <section className="md:hidden bg-content-bg shadow rounded p-4 flex justify-around align-center md:flex-col md:justify-around text-center md:max-w-[80px]">
         {/* Botón Inventario */}
         <CharacterButton
           icon={NotesIcon}
