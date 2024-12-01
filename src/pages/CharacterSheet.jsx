@@ -1,13 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchCharacterById } from "../api/character";
-import NotesIcon from "../assets/icons/notas.png";
 import ArtifactsIcon from "../assets/icons/ciencia_macabra.png";
 import SpiritsIcon from "../assets/icons/pactos_demoniacos.png";
 import CharacterHeader from "../components/Character/CharacterHeader";
 import { CharacterContent } from "../components/Character/CharacterContent";
-import { CharacterLifeBar } from "../components/Character/Utils/CharacterLifeBar";
-import { CharacterButton } from "../components/Character/Utils";
 import {
   CharacterArtifacts,
   CharacterEquipment,
@@ -21,8 +18,6 @@ import PusherComponent from "../components/PusherComponent";
 
 const widthIcons = 50;
 const heightIcons = 50;
-const heightNotes = 35;
-const widthNotes = 35;
 const Dice = new DiceBox(
   "#dice-box", // target DOM element to inject the canvas for rendering
   {
